@@ -1,0 +1,32 @@
+
+    <config>
+        <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">           
+            <router>
+                <bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-bgp">
+                    <id>1</id>
+                    <bgp>
+                        <log-neighbor-changes>true</log-neighbor-changes>
+                    </bgp>
+                    <neighbor>
+                        <id>{{neighbor_IP}}</id>
+                        <remote-as>{{neighbor_AS}}</remote-as>
+                        <description>{{neighbor_name}}</description>
+                    </neighbor>
+                    <address-family>
+                        <no-vrf>
+                            <ipv4>
+                                <af-name>unicast</af-name>
+                                <ipv4-unicast>
+                                    <neighbor>
+                                        <id>{{neighbor_IP}}</id>
+                                        <activate/>
+                                    </neighbor>
+                                </ipv4-unicast>
+                            </ipv4>
+                        </no-vrf>
+                    </address-family>
+                </bgp>
+            </router>
+        </native>
+    </config>
+
